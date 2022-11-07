@@ -7,6 +7,15 @@
     <title>Listado de Artículos</title>
 </head>
 <body>
-    Listado de artículos
+    <?php
+        require "./comunes/auxiliar.php";
+
+
+    ?>
+
+        <fieldset>
+
+        </fieldset>
+
 </body>
 </html>
