@@ -8,14 +8,42 @@
 </head>
 <body>
     <?php
-        require "./comunes/auxiliar.php";
+        require "../comunes/auxiliar.php";
+        
+        $pdo = conectar();
+
+        $pdo->beginTransaction();
+        $pdo->exec('LOCK TABLE articulos IN SHARE MODE');
+        $execute = [];
+        
+        $sent = $pdo->prepare("SELECT *
+                               FROM articulos");
+
+        $sent->execute($execute);
+
+
+
+        $pdo->commit();
 
 
     ?>
 
-        <fieldset>
+        <table style="margin:auto; border: 3px solid black">
+            <thead>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+            </thead>
+            <?php
+                foreach ($sent as $fila){
+                    ?><tr>
+                        <td><?= $fila['codigo'] ?></td>
+                        <td><?= mb_substr($fila['descripcion'], 0, 30) ?></td>
+                        <td align="right"><?= $fila['precio'] ?></td>
+                      </tr>
 
-        </fieldset>
+                <?php } ?>
+        </table>
 
 </body>
 </html>
