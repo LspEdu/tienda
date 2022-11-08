@@ -28,21 +28,23 @@
 
     ?>
 
-        <table style="margin:auto; border: 3px solid black">
+        <table style="margin:auto" border="1">
             <thead>
                 <th>Código</th>
                 <th>Descripción</th>
                 <th>Precio</th>
             </thead>
+            <tbody>
             <?php
                 foreach ($sent as $fila){
                     ?><tr>
                         <td><?= $fila['codigo'] ?></td>
-                        <td><?= mb_substr($fila['descripcion'], 0, 30) ?></td>
+                        <td><?= $fila['descripcion'] ?></td>
                         <td align="right"><?= $fila['precio'] ?></td>
                       </tr>
-
                 <?php } ?>
+                
+            </tbody>
         </table>
 
 </body>
