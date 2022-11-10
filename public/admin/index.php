@@ -5,10 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Artículos</title>
+    <link rel="stylesheet" href="/css/output.css">
 </head>
 <body>
+<body>
+
     <?php
-        require "../comunes/auxiliar.php";
+        require '../../src/admin_auxiliar.php';
         
         $pdo = conectar();
 
@@ -27,8 +30,8 @@
 
         $nf = new NumberFormatter('es_ES', NumberFormatter::CURRENCY);
     ?>
-
-        <table style="margin:auto" border="1">
+    <div class="container mx-auto">
+        <table border="1" class="mx-auto mt-4 text-blue-600">
             <thead>
                 <th>Código</th>
                 <th>Descripción</th>
@@ -49,6 +52,8 @@
                 
             </tbody>
         </table>
+    </div>
+        
 
 </body>
 </html>
